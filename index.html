@@ -1,15 +1,21 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Análise de Prospecção - Nutricionistas</title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   <link rel="stylesheet" href="./index-Ble6mUCf.css" />
-  <base href="./">
 </head>
 <body>
+  <!-- O container que o bundle espera -->
   <div id="root"></div>
-  <script type="module" src="./index-BCEwZ4Z1.js"></script>
+
+  <!-- Importa o bundle SOMENTE após o DOM estar pronto -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      import('./index-BCEwZ4Z1.js' + '?v=' + Date.now()); // cache-busting durante o teste
+    });
+  </script>
 </body>
 </html>
