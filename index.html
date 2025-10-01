@@ -8,26 +8,21 @@
   <link rel="stylesheet" href="./index-Ble6mUCf.css" />
 </head>
 <body>
-  <!-- Contêiner que o bundle espera -->
   <div id="root"></div>
 
-  <!-- Garantias: cria o #root se não existir, zera conteúdo e só então carrega o bundle -->
   <script>
+    // Garante #root existente e vazio ANTES do bundle
     (function () {
-      // 1) Garante que o #root exista
-      var root = document.getElementById('root');
-      if (!root) {
-        root = document.createElement('div');
-        root.id = 'root';
-        document.body.appendChild(root);
+      let el = document.getElementById('root');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'root';
+        document.body.appendChild(el);
       }
+      el.innerHTML = '';
 
-      // 2) Garante que esteja vazio (createRoot exige container vazio)
-      root.innerHTML = '';
-
-      // 3) Carrega o bundle apenas depois do DOM estar pronto
       function start() {
-        import('./index-BCEwZ4Z1.js?v=' + Date.now()); // cache-busting
+        import('./index-BCEwZ4Z1.js?v=' + Date.now());
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', start);
